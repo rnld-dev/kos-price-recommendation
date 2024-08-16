@@ -48,12 +48,10 @@ st.markdown('<h1 style="text-align: center;">Kalkulator Harga Sewa Indekos berba
 # Deskripsi singkat aplikasi
 st.markdown('<div class="description">Aplikasi ini dirancang khusus untuk mengestimasi harga sewa kos di wilayah Surabaya. Fokus utama dari aplikasi ini adalah kos-kosan di sekitar kampus-kampus terkemuka seperti UPN, UNAIR, ITS, dan UNESA. Masukkan data kos Anda untuk mendapatkan rekomendasi harga sewa yang sesuai.</div>', unsafe_allow_html=True)
 
-# Load model, scaler, dan encoder yang telah disimpan
-with open('best_xgb_model.sav', 'rb') as file:
-    model = pickle.load(file)
+# Muat model dan scaler
+model = pickle.load(open("best_xgb_model.sav", "rb"))
+scaler = pickle.load(open("scaler.pkl", "rb"))
 
-with open('scaler.pkl', 'rb') as file:
-    scaler = pickle.load(file)
 
 # Definisikan kategori untuk encoding
 jenis = ['Putri', 'Putra', 'Campur']
